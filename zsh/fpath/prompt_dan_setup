@@ -1,0 +1,16 @@
+
+prompt_dan_help() {
+  cat <<EOH
+EOH
+}
+
+prompt_dan_setup () {
+  PS1='%B%F{black}<%b%F{blue}<%B<%b%f %n@%M %B%F{blue}%~%b%f %(?..%F{red}E:%f%? )%1(j.%{%F{green}%}J:%f%j.)
+%B%F{black}%b>%(!.%F{red}.%F{green})>%B>%b%f '
+}
+
+prompt_dan_preview () {
+  prompt_preview_theme dan
+}
+
+prompt_dan_setup "$@"
