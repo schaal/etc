@@ -2,6 +2,7 @@
 
 fpath=(/etc/zsh/fpath $fpath)
 
+setopt promptsubst
 autoload -Uz promptinit
 promptinit
 prompt dan
