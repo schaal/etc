@@ -47,3 +47,5 @@ alias u="cd .."
 alias uu="cd .. && cd .."
 
 alias tmux="tmux -2"
+
+alias up="sudo sh -c \"apt update && apt full-upgrade && aptitude search '?new ?not(?architecture(foreign))' && aptitude forget-new\""
