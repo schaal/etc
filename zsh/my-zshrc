@@ -1,5 +1,13 @@
 # Set up the prompt
 
+CONFIG_FILE="/etc/zsh/my-zsh-config"
+
+if [[ -e "$CONFIG_FILE" ]]
+then
+    source "$CONFIG_FILE"
+    echo $SHOW_NEW
+fi
+
 fpath=(/etc/zsh/fpath $fpath)
 
 setopt promptsubst
@@ -48,4 +56,9 @@ alias uu="cd .. && cd .."
 
 alias tmux="tmux -2"
 
-alias up="sudo sh -c \"apt update && apt full-upgrade && aptitude search '?new ?not(?architecture(foreign))' && aptitude forget-new\""
+if [[ "$SHOW_NEW" -eq 0 ]]
+then
+    alias up="sudo sh -c \"apt update && apt full-upgrade\""
+else
+    alias up="sudo sh -c \"apt update && apt full-upgrade && aptitude search '?new ?not(?architecture(foreign))' && aptitude forget-new\""
+fi
