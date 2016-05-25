@@ -47,7 +47,13 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 alias ls="ls --color"
 alias jc="journalctl"
-alias jce="journalctl -e"
+alias jce="journalctl --pager-end"
+
+for level in {0..7}
+do
+    alias jce$level="journalctl --pager-end --priority=$level"
+done
+
 alias sc="systemctl"
 
 alias u="cd .."
