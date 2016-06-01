@@ -63,7 +63,7 @@ alias tmux="tmux -2"
 
 if [[ "$SHOW_NEW" -eq 0 ]]
 then
-    alias up="sudo sh -c \"apt update && apt full-upgrade\""
+    alias up="sudo sh -c \"apt update && apt upgrade\""
 else
-    alias up="sudo sh -c \"apt update && apt full-upgrade && aptitude search '?new ?not(?architecture(foreign))' && aptitude forget-new\""
+    alias up="sudo sh -c \"apt update && apt upgrade && aptitude search '?new ?not(?architecture(foreign))' && aptitude forget-new\""
 fi
