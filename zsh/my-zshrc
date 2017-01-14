@@ -61,7 +61,7 @@ alias uu="cd .. && cd .."
 
 alias tmux="tmux -2"
 
-alias e="eatmydata"
+alias -g e="eatmydata"
 
 if [[ "$SHOW_NEW" -eq 0 ]]
 then
