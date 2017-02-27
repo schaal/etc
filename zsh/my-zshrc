@@ -7,7 +7,7 @@ then
     source "$CONFIG_FILE"
 fi
 
-fpath=(/etc/zsh/fpath $fpath)
+fpath=(/etc/zsh/fpath /etc/zsh/zsh-completions/src $fpath)
 
 setopt promptsubst
 autoload -Uz promptinit
