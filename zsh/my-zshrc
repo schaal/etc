@@ -1,15 +1,15 @@
 # Set up the prompt
 
-PREFIX="$0:A:h"
+ZSHPREFIX="$0:A:h"
 
-CONFIG_FILE="$PREFIX/my-zsh-config"
+CONFIG_FILE="$ZSHPREFIX/my-zsh-config"
 
 if [[ -e "$CONFIG_FILE" ]]
 then
     source "$CONFIG_FILE"
 fi
 
-fpath=("$PREFIX/fpath" "$PREFIX/zsh-completions/src" $fpath)
+fpath=("${ZSHPREFIX}/fpath" "${ZSHPREFIX}/zsh-completions/src" $fpath)
 
 setopt promptsubst
 autoload -Uz promptinit
