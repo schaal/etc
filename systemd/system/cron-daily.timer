@@ -7,4 +7,4 @@ Persistent=true
 Unit=cron-daily.target
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=timers.target
