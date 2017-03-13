@@ -11,6 +11,9 @@ fi
 
 fpath=("${ZSHPREFIX}/fpath" "${ZSHPREFIX}/zsh-completions/src" $fpath)
 
+unset ZSHPREFIX
+unset CONFIG_FILE
+
 setopt promptsubst
 autoload -Uz promptinit
 promptinit
@@ -71,3 +74,4 @@ then
 else
     alias up="sudo sh -c \"apt update && apt upgrade && aptitude search '?new ?not(?architecture(foreign)) ?not(dbgsym$)' && aptitude forget-new\""
 fi
+
