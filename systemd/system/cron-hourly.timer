@@ -1,0 +1,10 @@
+[Unit]
+Description=Hourly cron script timer
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+Unit=cron-hourly.target
+
+[Install]
+WantedBy=timers.target
