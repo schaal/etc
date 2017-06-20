@@ -53,22 +53,29 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 alias ls="ls --color"
-alias jc="journalctl"
-alias jce="journalctl --pager-end"
 
-for level in {0..7}
-do
-    alias jce$level="journalctl --pager-end --priority=$level"
-done
+if [[ -d /run/systemd/system ]]; then
+    alias jc="journalctl"
+    alias jce="journalctl --pager-end"
 
-alias sc="systemctl"
+    for level in {0..7}
+    do
+        alias jce$level="journalctl --pager-end --priority=$level"
+    done
+
+    alias sc="systemctl"
+fi
 
 alias u="cd .."
 alias uu="cd .. && cd .."
 
-alias tmux="tmux -2"
+if type tmux > /dev/null; then
+    alias tmux="tmux -2"
+fi
 
-alias -g e="eatmydata"
+if type eatmydata > /dev/null; then
+    alias -g e="eatmydata"
+fi
 
 if [[ "$SHOW_NEW" -eq 0 ]]
 then
