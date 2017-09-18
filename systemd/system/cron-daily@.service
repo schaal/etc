@@ -1,5 +1,5 @@
 [Unit]
-Description=run daily cron script %i
+Description=Daily cron script %i
 
 [Service]
 ExecStart=/usr/bin/env /etc/cron.daily/%i
