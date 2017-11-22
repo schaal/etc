@@ -54,7 +54,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 alias ls="ls --color"
 
-if [[ -d /run/systemd/system ]]; then
+if type journalctl > /dev/null; then
     alias jc="journalctl"
     alias jce="journalctl --pager-end"
 
@@ -64,6 +64,10 @@ if [[ -d /run/systemd/system ]]; then
     done
 
     alias sc="systemctl"
+
+    if type mosh > /dev/null; then
+        alias systemd-mosh='mosh --server="systemd-run --user --scope mosh-server"'
+    fi
 fi
 
 alias u="cd .."
