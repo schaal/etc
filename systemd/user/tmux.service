@@ -1,0 +1,15 @@
+[Unit]
+Description=tmux default session (detached)
+Documentation=man:tmux(1)
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/tmux new-session -d -s %H
+ExecStop=/usr/bin/tmux kill-server
+KillMode=none
+Restart=always
+SuccessExitStatus=1
+Environment="LANG=C.UTF-8"
+
+[Install]
+WantedBy=default.target
