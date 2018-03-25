@@ -1,2 +1,3 @@
 Acquire::Languages "none";
 APT::Install-Recommends 0;
+Binary::apt::APT::Keep-Downloaded-Packages 1;
