@@ -1,0 +1,4 @@
+zsh-users/zsh-completions
+
+denysdovhan/spaceship-prompt
+
