@@ -1,4 +1,4 @@
-source /etc/zsh/zsh_plugins.sh
+source zsh_plugins.sh
 
 SPACESHIP_PROMPT_ORDER=( user dir host git venv jobs line_sep exit_code char )
 SPACESHIP_PROMPT_ADD_NEWLINE=false
