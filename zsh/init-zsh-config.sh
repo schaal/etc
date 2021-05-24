@@ -15,6 +15,8 @@ if [ ! -x "${ANTIBODY}" ]; then
     curl -sfL https://git.io/antibody | sh -s - -b "$ANTIBODY_HOME"
 fi
 
+echo "Using $("${ANTIBODY}" home)"
+
 "${ANTIBODY}" bundle < zsh_plugins.txt > zsh_plugins.sh
 
 if ! grep -q "source \"${PATH_PREFIX}/my-zshrc\"" zshrc; then
