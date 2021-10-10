@@ -19,6 +19,8 @@ echo "Using $("${ANTIBODY}" home)"
 
 "${ANTIBODY}" bundle < zsh_plugins.txt > zsh_plugins.sh
 
+"${ANTIBODY}" update
+
 if ! grep -q "source \"${PATH_PREFIX}/my-zshrc\"" zshrc; then
 cat <<EOT >> ${PATH_PREFIX}/zshrc
 

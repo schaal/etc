@@ -1,8 +1,8 @@
 source "${0:P:h}/zsh_plugins.sh"
 
-SPACESHIP_PROMPT_ORDER=( user dir host git venv jobs line_sep exit_code char )
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_CHAR_SYMBOL="▶ "
+#SPACESHIP_PROMPT_ORDER=( user dir host git venv jobs line_sep exit_code char )
+#SPACESHIP_PROMPT_ADD_NEWLINE=false
+#SPACESHIP_CHAR_SYMBOL="▶ "
 
 setopt histignorealldups sharehistory
 
