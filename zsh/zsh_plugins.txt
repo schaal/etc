@@ -1,4 +1,0 @@
-zsh-users/zsh-completions
-
-#denysdovhan/spaceship-prompt
-romkatv/powerlevel10k

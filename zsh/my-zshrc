@@ -1,8 +1,15 @@
-source "${0:P:h}/zsh_plugins.sh"
+ZINIT_HOME="${0:P:h}/zinit"
+source "${ZINIT_HOME}/zinit.zsh"
 
-#SPACESHIP_PROMPT_ORDER=( user dir host git venv jobs line_sep exit_code char )
-#SPACESHIP_PROMPT_ADD_NEWLINE=false
-#SPACESHIP_CHAR_SYMBOL="▶ "
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load powerlevel10k theme
+zinit ice depth"1" # git clone depth
+zinit light romkatv/powerlevel10k
+
+zinit ice blockf
+zinit light zsh-users/zsh-completions
 
 setopt histignorealldups sharehistory
 
