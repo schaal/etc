@@ -1,3 +1,0 @@
-[Unit]
-Description=Daily cron target
-StopWhenUnneeded=true
