@@ -1,0 +1,38 @@
+#!/bin/bash
+
+INSTALL_PATH=/usr/local/bin
+OHMYPOSH_THEME=paradox
+BASHRC=/etc/bash.bashrc
+
+while getopts ":u" option; do
+ case $option in
+   u) # install as user
+     INSTALL_PATH=~/bin
+     FONT_INSTALL_ARG="--user"
+     BASHRC=~/.bashrc
+     mkdir -p $INSTALL_PATH
+     ;;
+   esac
+done
+
+curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ${INSTALL_PATH}
+
+${INSTALL_PATH}/oh-my-posh font install ${FONT_INSTALL_ARG} NerdFontsSymbolsOnly
+
+if ! grep -q "# added by init-bash" "${BASHRC}"; then
+cat <<EOT >> ${BASHRC}
+# added by init-bash
+if [ -d /etc/bash.bashrc.d ]; then
+  for i in /etc/bash.bashrc.d/*.sh; do
+    if [ -r \$i ]; then
+      . \$i
+    fi
+  done
+  unset i
+fi
+eval "\$(${INSTALL_PATH}/oh-my-posh init bash --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/${OHMYPOSH_THEME}.omp.json)"
+# end
+
+EOT
+fi
+
