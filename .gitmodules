@@ -1,3 +1,6 @@
 [submodule "zsh/zinit"]
 	path = zsh/zinit
 	url = https://github.com/zdharma-continuum/zinit.git
+[submodule "bash.bashrc.d/complete-alias"]
+	path = bash.bashrc.d/complete-alias
+	url = https://github.com/cykerway/complete-alias.git

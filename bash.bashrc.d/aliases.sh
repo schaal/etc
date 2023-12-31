@@ -1,3 +1,5 @@
+source /etc/bash.bashrc.d/complete-alias/complete_alias
+
 alias ls="ls --color"
 
 if type journalctl &> /dev/null; then
@@ -29,3 +31,4 @@ fi
 
 alias up="sudo ${UNSAFE_IO:+eatmydata} sh -c \"apt update && apt upgrade\""
 
+complete -F _complete_alias "${!BASH_ALIASES[@]}"
