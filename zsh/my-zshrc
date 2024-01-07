@@ -4,10 +4,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load powerlevel10k theme
-zinit ice depth"1" # git clone depth
-zinit light romkatv/powerlevel10k
-
 zinit ice blockf
 zinit light zsh-users/zsh-completions
 
@@ -40,39 +36,10 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-alias ls="ls --color"
-
-if type journalctl > /dev/null; then
-    alias jc="journalctl"
-    alias jce="journalctl --pager-end"
-
-    for level in {0..7}
-    do
-        alias jce$level="journalctl --pager-end --priority=$level"
-    done
-
-    alias sc="systemctl"
-
-    if type mosh > /dev/null; then
-        alias systemd-mosh='mosh --server="systemd-run --user --scope mosh-server"'
-    fi
-fi
-
-alias u="cd .."
-alias uu="cd .. && cd .."
-
-if type tmux > /dev/null; then
-    alias tmux="tmux -2"
-fi
+source /etc/bash.bashrc.d/0common.sh
 
 if type eatmydata > /dev/null; then
     alias -g e="eatmydata"
 fi
 
-if [[ "$SHOW_NEW" -eq 0 ]]
-then
-    alias up="sudo ${UNSAFE_IO:+eatmydata} sh -c \"apt update && apt upgrade\""
-else
-    alias up="sudo ${UNSAFE_IO:+eatmydata} sh -c \"apt update && apt upgrade && aptitude search '?new ?not(?architecture(foreign)) ?not(dbgsym$)' && aptitude forget-new\""
-fi
-
+eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/${OHMYPOSH_THEME}.omp.json)"

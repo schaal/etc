@@ -30,7 +30,6 @@ if [ -d /etc/bash.bashrc.d ]; then
   done
   unset i
 fi
-eval "\$(${INSTALL_PATH}/oh-my-posh init bash --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/${OHMYPOSH_THEME}.omp.json)"
 # end
 
 EOT

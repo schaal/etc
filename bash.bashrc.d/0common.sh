@@ -28,3 +28,6 @@ if type eatmydata &> /dev/null; then
 fi
 
 alias up="sudo ${UNSAFE_IO:+eatmydata} sh -c \"apt update && apt upgrade\""
+
+export OHMYPOSH_THEME=paradox
+
