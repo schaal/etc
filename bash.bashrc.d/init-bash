@@ -1,21 +1,16 @@
 #!/bin/bash
 
-INSTALL_PATH=/usr/local/bin
-OHMYPOSH_THEME=paradox
+INSTALL_PATH=$(dirname -- "$( readlink -f -- "$0"; )")
 BASHRC=/etc/bash.bashrc
 
 while getopts ":u" option; do
  case $option in
    u) # install as user
-     INSTALL_PATH=~/bin
      FONT_INSTALL_ARG="--user"
      BASHRC=~/.bashrc
-     mkdir -p $INSTALL_PATH
      ;;
    esac
 done
-
-curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ${INSTALL_PATH}
 
 ${INSTALL_PATH}/oh-my-posh font install ${FONT_INSTALL_ARG} NerdFontsSymbolsOnly
 
